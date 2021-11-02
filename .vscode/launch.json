@@ -13,7 +13,6 @@
       "runtimeExecutable": "/Users/zhengxs/.deno/bin/deployctl",
       "runtimeArgs": [
         "run",
-        "--no-check",
         "--inspect",
         "--watch"
       ],
