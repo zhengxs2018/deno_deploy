@@ -1,13 +1,12 @@
 /// <reference lib="deno.ns" />
-import { dirname, relative, resolve, extname } from "../../deps/path.ts";
+import { relative, resolve, extname } from "../../deps/path.ts";
 import { lookup } from '../../deps/mime_types.ts'
 
 import { isFile } from "../../util/fs-extra.ts";
-import { fileURLToPath } from "../../util/url.ts";
 
 import { Middleware } from "../interfaces.ts";
 
-const cwd = dirname(fileURLToPath(Deno.mainModule));
+const cwd = Deno.cwd();
 
 export function serve(base: string = "public"): Middleware {
   const root = resolve(cwd, base);
