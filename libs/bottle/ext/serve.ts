@@ -15,7 +15,7 @@ export function serve(base: string = "public"): Middleware {
     if (ctx.method !== "GET") return next();
 
     const file = resolve(root, relative("/", ctx.path));
-    if (isFile(file) === false) return next();
+//     if (isFile(file) === false) return next();
 
     const type = lookup(extname(file))
 
