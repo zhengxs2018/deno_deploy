@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "start": "deno run --allow-net --allow-read ./main.ts",
+    "dev": "deno run --watch --allow-net --allow-read ./main.ts",
+    "inspect": "deno run --inspect --allow-net --allow-read ./main.ts"
+  }
+}
