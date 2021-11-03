@@ -8,7 +8,8 @@
 - `--allow-net` - [mime_types] 需要获取远程数据
 - `--allow-read` - [mime_types] 和静态资源需要
 
-具体说明请查看 [permissions](https://deno.land/manual@v1.15.3/getting_started/permissions)。
+具体说明请查看
+[permissions](https://deno.land/manual@v1.15.3/getting_started/permissions)。
 
 ## 快速开始
 

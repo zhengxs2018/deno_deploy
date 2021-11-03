@@ -67,7 +67,7 @@ export interface BaseContext
 }
 
 export interface ExtendableContext extends BaseContext {
-  env: string
+  env: string;
   location: URL;
   request: Request;
   response: ServerResponse;

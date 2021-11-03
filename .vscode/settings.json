@@ -8,5 +8,7 @@
     "https://deno.land": true,
     "https://cdn.skypack.dev": false
   },
-  "cSpell.words": []
+  "cSpell.words": [
+    "asynciterable"
+  ]
 }

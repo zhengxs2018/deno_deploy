@@ -3,7 +3,7 @@ import delegate from "delegates";
 import type { ExtendableContext } from "../types.ts";
 
 const proto = {
-  env: Deno.env.get('SERVER_APP_ENV') ?? 'development',
+  env: Deno.env.get("SERVER_APP_ENV") ?? "development",
   get path() {
     return this.location.pathname;
   },
