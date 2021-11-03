@@ -39,6 +39,37 @@ $ npm run dev
 $ npm run inspect
 ```
 
+## 后续计划
+
+解决完 `css-in-js` 的问题后，重构框架代码。
+
+初步设想是参考 `Vue3.x` + `React Router`。
+
+```jsx
+function App() {
+  return (
+    <Switch>
+      <Route path="/">
+        <Home />
+      </Route>
+      <Route path="*">
+        <NotFound />
+      </Route>
+    </Switch>
+  )
+}
+
+// 所有未匹配的请求，统一由 App 进行处理
+const app = createApp(App);
+
+app.use(serve('public'))
+
+app.use(tailwind({ ... }))
+
+console.log("Listen on http://127.0.0.1:8080");
+app.run(':8080')
+```
+
 ## License
 
 - MIT
