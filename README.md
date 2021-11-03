@@ -1,5 +1,7 @@
 # Deno deploy
 
+> 不知道如何解决 Deno Deploy 上使用 import_map.json 的问题，一切以本地运行的效果为主
+
 基于 [Deno Deploy](https://deno.com/deploy/docs/) 的前后端一体化开发。
 
 ## 需要的权限
