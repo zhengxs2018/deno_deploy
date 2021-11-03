@@ -1,12 +1,12 @@
 {
+  "editor.minimap.enabled": false,
   "deno.enable": true,
   "deno.unstable": false,
-  "deno.config": "./tsconfig.json",
+  "deno.config": "./deno.jsonc",
+  "deno.importMap": "./import_map.json",
   "deno.suggest.imports.hosts": {
     "https://deno.land": true,
     "https://cdn.skypack.dev": false
   },
-  "cSpell.words": [
-    "deployctl"
-  ]
+  "cSpell.words": []
 }

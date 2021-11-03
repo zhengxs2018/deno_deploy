@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "std/path/": "https://deno.land/std@0.113.0/path/",
+    "std/path": "https://deno.land/std@0.113.0/path/mod.ts",
+    "std/fs/": "https://deno.land/std@0.113.0/fs/",
+    "std/fs": "https://deno.land/std@0.113.0/fs/mod.ts",
+    "std/http/": "https://deno.land/std@0.113.0/http/",
+    "std/http": "https://deno.land/std@0.113.0/http/mod.ts",
+    "mime_types": "https://deno.land/x/mime_types@1.0.0/mod.ts",
+    "lodash-es": "https://cdn.skypack.dev/lodash-es",
+    "delegates": "https://cdn.skypack.dev/delegates"
+  }
+}

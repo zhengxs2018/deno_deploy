@@ -1,47 +1,29 @@
+import { Handler, listenAndServe, ServeInit } from "std/http/server.ts";
+
 import compose from "../util/compose.ts";
-import { listenAndServe, Handler, ServeInit } from "../deps/server.ts";
 
-import baseContext from "./base/context.ts";
+import context from "./extend/context.ts";
+import response from "./extend/response.ts";
 
-import type { Context, DefaultState, Middleware } from "./interfaces.ts";
+import type { Context, Middleware } from "./types.ts";
 
-export const middleware: Middleware<any>[] = [];
+export const middleware: Middleware[] = [];
 
 export function createContext(request: Request) {
-  const context: Context = Object.create(baseContext);
-  const originalUrl = request.url;
-  const location = new URL(originalUrl);
+  const ctx: Context = Object.create(context);
 
-  context.location = location;
-  context.path = location.pathname;
-  context.originalUrl = originalUrl;
+  ctx.state = {};
+  ctx.location = new URL(request.url);
 
-  // todo base request
-  context.request = request;
-  context.method = request.method;
+  ctx.request = request;
 
-  // todo base response
-  const headers = new Headers();
-  context.response = {
-    status: 404,
-    headers: new Headers(),
-    has(name: string) {
-      return headers.has(name);
-    },
-    get(name: string) {
-      return headers.get(name);
-    },
-    set(name: string, value: string) {
-      headers.set(name, value);
-    },
-  };
+  ctx.response = Object.create(response);
+  ctx.response.headers = new Headers();
 
-  context.state = {};
-
-  return context;
+  return ctx;
 }
 
-export function use<StateT = DefaultState>(fn: Middleware<StateT>) {
+export function use(fn: Middleware) {
   if (typeof fn !== "function") {
     throw new TypeError("middleware must be a function!");
   }
@@ -58,30 +40,27 @@ export function callback(): Handler {
     try {
       await fnMiddleware(ctx);
 
-      const response = ctx.response;
+      const { body, status, message, headers } = ctx.response;
 
-      return new Response(response.body, {
-        status: response.status,
-        statusText: response.statusText,
-        headers: response.headers,
-      })
-    } catch (err) {
-      let message: string | undefined;
-      if (err && err.expose) {
-        message = err.message;
-      } else {
-        // todo logger
-        console.error(err);
+      // 404 特殊处理
+      if (status === 404) {
+        return new Response(message, { status, headers });
       }
 
-      return new Response(null, {
-        status: 500,
-        statusText: message,
-      })
+      return new Response(body, { status, headers });
+    } catch (err) {
+      if (err && err.expose) {
+        const status = err.statusCode || err.status;
+        return new Response(err.message, { status });
+      }
+
+      // todo logger
+      console.error(err);
+      return new Response("Internal Server Error", { status: 500 });
     }
   };
 }
 
-export function run(addr: string = ':8080', options?: ServeInit) {
+export function run(addr: string = ":8080", options?: ServeInit) {
   return listenAndServe(addr, callback(), options);
 }

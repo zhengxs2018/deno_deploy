@@ -8,13 +8,16 @@
       "request": "launch",
       "name": "Launch Program",
       "type": "pwa-node",
-      "program": "${workspaceFolder}/src/mod.ts",
+      "program": "${workspaceFolder}/mod.ts",
       "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "/Users/zhengxs/.deno/bin/deployctl",
+      "runtimeExecutable": "deno",
       "runtimeArgs": [
         "run",
         "--inspect",
-        "--watch"
+        "--import-map=${workspaceFolder}/import_map.json",
+        "--allow-env",
+        "--allow-net",
+        "--allow-read"
       ],
       "attachSimplePort": 9229
     },
