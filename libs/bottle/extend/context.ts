@@ -1,4 +1,4 @@
-import delegate from "delegates";
+import delegate from "https://cdn.skypack.dev/delegates";
 
 import type { ExtendableContext } from "../types.ts";
 

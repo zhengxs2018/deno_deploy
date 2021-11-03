@@ -1,5 +1,5 @@
-import { assert } from "std/asserts";
-import { compile, pathToRegexp } from "path-to-regexp";
+import { assert } from "https://deno.land/std@0.113.0/testing/asserts.ts";
+import { compile, pathToRegexp } from "https://cdn.skypack.dev/path-to-regexp";
 
 import { arrayify } from "../../util/shared.ts";
 import type { Middleware } from "../types.ts";

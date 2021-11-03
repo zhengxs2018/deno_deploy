@@ -3,7 +3,7 @@
 /// <reference lib="dom" />
 /// <reference lib="dom.asynciterable" />
 /// <reference lib="deno.ns" />
-import { h, Helmet, Fragment } from "nano_jsx";
+import { Fragment, h, Helmet } from "https://deno.land/x/nano_jsx@v0.0.20/mod.ts";
 
 function Home() {
   return (

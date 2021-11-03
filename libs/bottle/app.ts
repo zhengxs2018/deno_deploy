@@ -1,4 +1,4 @@
-import { Handler, listenAndServe, ServeInit } from "std/http/server.ts";
+import { Handler, listenAndServe, ServeInit } from "https://deno.land/std@0.113.0/http/server.ts";
 
 import compose from "../util/compose.ts";
 

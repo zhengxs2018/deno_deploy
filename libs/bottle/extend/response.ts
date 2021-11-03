@@ -1,4 +1,4 @@
-import { pick } from "lodash-es";
+import { pick } from "https://cdn.skypack.dev/lodash-es";
 import type { ExtendableResponse } from "../types.ts";
 
 export default {

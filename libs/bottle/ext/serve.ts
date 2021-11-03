@@ -1,6 +1,6 @@
 /// <reference lib="deno.ns" />
-import { extname, join, relative, resolve } from "std/path";
-import { lookup } from "mime_types";
+import { extname, join, relative, resolve } from "https://deno.land/std@0.113.0/path/mod.ts";
+import { lookup } from "https://deno.land/x/mime_types@1.0.0/mod.ts";
 
 import type { Context, Middleware } from "../types.ts";
 
