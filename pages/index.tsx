@@ -10,6 +10,7 @@ function Home() {
     <Fragment>
       <Helmet>
         <title>测试 SSR</title>
+        <link rel="stylesheet" href="/reset.css" />
       </Helmet>
 
       <h1>Hello nano!</h1>
